@@ -1,0 +1,9 @@
+
+.human-work {
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: flex-start;
+   width: 400px;
+   padding: 10px;
+   float: left;
+}

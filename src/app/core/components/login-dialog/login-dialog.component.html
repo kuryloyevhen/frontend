@@ -1,0 +1,13 @@
+
+<div class='login-dialog' [formGroup]='loginForm'>
+   <mat-form-field class="login-option"> 
+      <input type="text" matInput placeholder='User name' formControlName='name'>
+   </mat-form-field>
+   <mat-form-field class="login-option">
+      <input type="password" matInput placeholder="User password" formControlName='password'>
+   </mat-form-field>
+   <div class='btn-group'>
+      <button mat-raised-button color='primary' class='btn' (click)='login()'>Login</button>
+      <button mat-stroked-button color='primary' class='btn' [mat-dialog-close]='true'>Close</button>
+   </div>
+</div>

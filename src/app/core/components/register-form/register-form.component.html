@@ -1,0 +1,16 @@
+
+<div class='register' [formGroup]='registerForm'>
+   <mat-form-field>
+      <input type="text" matInput placeholder="User name" formControlName='name'>
+   </mat-form-field>
+   <mat-form-field>
+      <input type="password" matInput placeholder="User password" formControlName='password'>
+   </mat-form-field>
+   <mat-form-field>
+      <input type="email" matInput placeholder="User email" formControlName='email'>
+   </mat-form-field>
+   <div class='btn-group'>
+      <button class='btn' mat-raised-button color='primary' (click)='register()'>Register</button>
+      <button class='btn' mat-stroked-button color='primary' [mat-dialog-close]='true'>Close</button>
+   </div>
+</div>

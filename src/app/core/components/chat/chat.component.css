@@ -1,0 +1,17 @@
+
+.chat {
+   width: 100%;
+   border: 1px solid #000;
+   display: flex;
+   justify-content: space-between;
+   flex-flow: column;
+}
+
+.chat-panel {
+   display: flex;
+   flex-flow: row nowrap;
+}
+
+.text-area {
+   width: 100%;
+}

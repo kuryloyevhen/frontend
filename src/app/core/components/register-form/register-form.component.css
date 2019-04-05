@@ -1,0 +1,16 @@
+
+.register {
+   display: flex;
+   flex-direction: column;
+}
+
+.btn-group {
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: space-between;
+   width: 100%;
+}
+
+.btn {
+   width: 30%;
+}

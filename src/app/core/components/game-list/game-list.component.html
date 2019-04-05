@@ -1,0 +1,17 @@
+
+<div class='game-list'>
+   <mat-list>
+      <mat-list-item *ngFor='let room of rooms'>
+         <span class='room'>{{room.name}}</span>
+         <button mat-raised-button color='primary' (click)='joinToGame(room.name)'>Join</button>
+      </mat-list-item>
+   </mat-list>
+   <button class='btn'>Create new room</button>
+   <button [mat-dialog-close]='true'>Close</button>
+   <div class='creating-game' [formGroup]='roomForm'>
+      <mat-form-field>
+         <input type="text" matInput placeholder="Room name" formControlName='name'>
+      </mat-form-field>
+      <button mat-raised-button color='primary' (click)='createGame()'>Create</button>
+   </div>
+</div>
