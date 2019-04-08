@@ -5,6 +5,7 @@ import { GameListComponent } from '../game-list/game-list.component';
 import { AuthService } from '../../../shared/services/auth.service';
 import { RegisterFormComponent } from '../register-form/register-form.component';
 import { SocketService } from 'src/app/shared/services/socket.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class StatusPanelComponent {
 
   constructor(public dialog: MatDialog,
               public service: AuthService,
-              private socket: SocketService) { }
+              private socket: SocketService,
+              private router: Router) { }
 
    user: object;
    isAuthorized = false;
@@ -33,7 +35,7 @@ export class StatusPanelComponent {
       dialogRef.afterClosed().subscribe( () => {
          this.isAuthorized = true;
          this.user = this.service.user;
-         console.log(this.user);
+         this.socket.connectToSocket();
       });
   }
 
@@ -61,6 +63,7 @@ openRegisterForm() {
    dialogRef.afterClosed().subscribe( () => {
       this.isAuthorized = this.service.isAuthorized;
       this.user = this.service.user;
+      this.socket.connectToSocket();
    });
 }
 
@@ -70,6 +73,7 @@ logout() {
       this.user = {};
    });
    this.socket.stoneage.disconnect();
+   this.router.navigate(['home']);
 }
 
 

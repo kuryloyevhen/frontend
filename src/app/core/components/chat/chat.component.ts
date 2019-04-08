@@ -6,7 +6,7 @@ import { SocketService } from 'src/app/shared/services/socket.service';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements OnInit{
+export class ChatComponent implements OnInit {
 
   constructor(private socket: SocketService) { }
 

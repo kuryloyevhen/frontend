@@ -8,6 +8,7 @@ import * as io from 'socket.io-client';
 export class SocketService {
    private url = 'http://127.0.0.1:3000';
    public stoneage;
+   room = '';
 
    constructor() {}
 
@@ -16,7 +17,11 @@ export class SocketService {
    }
 
    sendMessage(message) {
-      this.stoneage.emit('message', message);
+      let body = {
+         room: this.room,
+         message
+      };
+      this.stoneage.emit('message', body);
    }
 
    getMessages() {
