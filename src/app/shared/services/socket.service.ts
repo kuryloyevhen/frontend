@@ -17,12 +17,16 @@ export class SocketService {
    }
 
    sendMessage(message) {
-      let body = {
+      const body = {
          room: this.room,
          message
       };
       this.stoneage.emit('message', body);
    }
+
+   /* sendChanges(data) {
+      this.stoneage.emit('changes', data);
+   }*/
 
    getMessages() {
       return Observable.create( (observer) =>
@@ -45,6 +49,65 @@ export class SocketService {
          )
       );
    }
+
+   changes() {
+      return Observable.create( observer => {
+         this.stoneage.on('changes', data => {
+            observer.next(data);
+         });
+      });
+   }
+
+   move(data) {
+      data.room = this.room;
+      this.stoneage.emit('movement', data);
+   }
+
+   getMovement() {
+      return Observable.create( observer => {
+         this.stoneage.on('movement', data =>
+            observer.next(data)
+         );
+      });
+   }
+
+   movementError() {
+      return Observable.create( observer => {
+         this.stoneage.on('movementError', error =>
+            observer.next(error)
+         );
+      });
+   }
+
+   returnPeople(data) {
+      this.stoneage.emit('return', data);
+   }
+
+   getReturn() {
+      return Observable.create( observer => {
+         this.stoneage.on( 'return', data => {
+            observer.next(data);
+         });
+      });
+   }
+
+   feed() {
+      this.stoneage.emit('feed');
+   }
+
+   phase() {
+      return Observable.create( observer => {
+         this.stoneage.on('changePhase', data => {
+            observer.next(data);
+         });
+      });
+   }
+
+   changePhase(data) {
+      this.stoneage.emit('changePhase', data);
+   }
+
+
 
 
 }

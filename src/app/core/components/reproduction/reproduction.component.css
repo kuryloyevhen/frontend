@@ -3,3 +3,7 @@
    width: 20px;
    height: 30px;
 }
+
+.checked {
+   background-color: brown;
+}

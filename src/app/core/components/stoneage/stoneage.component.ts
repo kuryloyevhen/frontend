@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SocketService } from '../../../shared/services/socket.service';
 
 @Component({
   selector: 'app-stoneage',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StoneageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private socket: SocketService) { }
 
   ngOnInit() {
+	  this.socket.movementError().subscribe( error => {
+		  window.alert(error);
+     });
+
   }
 
 }

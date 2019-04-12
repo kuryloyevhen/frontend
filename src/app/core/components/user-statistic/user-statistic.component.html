@@ -1,13 +1,44 @@
 
 <div class='user-statistic'>
-   <div class='work-tools'>
+	<div class='wraper'>
+		<div class='work-tools'>
       <app-work-tool class="work-tool"></app-work-tool>
       <app-work-tool class="work-tool"></app-work-tool>
       <app-work-tool class="work-tool"></app-work-tool>
+   </div>
+   <div class='wraper2'>
+      <ul class='list'>
+         <li>
+            <span class='text' >Food</span> x <span class='amount'>{{player.food}} </span>   
+            <button class='btn' (click)="countResource('food', 2)" [disabled]='isDisabled.food'>Count</button>
+         </li>
+         <li>
+            <span class='text'>Wood</span> x <span class='amount'>{{player.wood}} </span>
+            <button class='btn' (click)="countResource('wood', 3)" [disabled]='isDisabled.wood'>Count</button>
+         </li>
+         <li>
+            <span class='text'>Clay</span> x <span class='amount'>{{player.clay}} </span>
+            <button class='btn' (click)="countResource('clay', 4)"[disabled]='isDisabled.clay'>Count</button>
+         </li>
+         <li>
+            <span class='text'>Stone</span> x <span class='amount'>{{player.stone}} </span>
+            <button class='btn' (click)="countResource('stone', 5)" [disabled]='isDisabled.stone'>Count</button>
+         </li>
+         <li>
+            <span class='text'>Gold</span> x <span class='amount'>{{player.gold}} </span>
+            <button class='btn' (click)="countResource('gold', 6)" [disabled]='isDisabled.gold'>Count</button>
+         </li>
+         <li>
+            <span class='text'>Population</span> x <span class='amount'>{{player.population}} </span>
+            <button class='btn' [disabled]='isDisabled.population'>Count</button>
+         </li>
+      </ul>
+      <button class='btn' (click)='sendChanges()'>Feed people</button>
    </div>
    <div class='civilization-cards'>
       <app-civilization-card></app-civilization-card>
    </div>
+	</div>
    <div class='dwellings'>
       <app-dwelling></app-dwelling>
       <app-dwelling></app-dwelling>

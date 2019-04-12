@@ -9,7 +9,6 @@ export class ResourceComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+   ngOnInit() {}
 
 }

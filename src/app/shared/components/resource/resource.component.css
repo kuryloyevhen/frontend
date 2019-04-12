@@ -8,3 +8,11 @@
    height: 20px;
    margin-right: 5px;
 }
+
+.human-place:hover {
+   background-color: brown;
+}
+
+.checked {
+   background-color: brown;
+}

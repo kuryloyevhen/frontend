@@ -33,6 +33,8 @@ import { ChatComponent } from './core/components/chat/chat.component';
 import { GameCreatorService } from './shared/services/game-creator.service';
 import { HomepageComponent } from './core/components/homepage/homepage.component';
 import { StoneageComponent } from './core/components/stoneage/stoneage.component';
+import { StorageService } from './shared/services/storage.service';
+import { BlockingLayerComponent } from './core/components/blocking-layer/blocking-layer.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,8 @@ import { StoneageComponent } from './core/components/stoneage/stoneage.component
     UserStatisticComponent,
     ChatComponent,
     HomepageComponent,
-    StoneageComponent
+    StoneageComponent,
+    BlockingLayerComponent
   ],
   imports: [
     BrowserModule,
@@ -76,6 +79,7 @@ import { StoneageComponent } from './core/components/stoneage/stoneage.component
      AuthService,
      SocketService,
      GameCreatorService,
+     StorageService,
      {
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptor,

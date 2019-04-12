@@ -6,4 +6,11 @@
    width: 400px;
    padding: 10px;
    float: left;
+   position: relative;
+   z-index: 1;
+}
+
+.phase {
+   z-index: 3;
+   background-color: #fff;
 }

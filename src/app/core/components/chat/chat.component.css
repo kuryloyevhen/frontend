@@ -5,6 +5,8 @@
    display: flex;
    justify-content: space-between;
    flex-flow: column;
+   position: relative;
+   z-index: 3;
 }
 
 .chat-panel {

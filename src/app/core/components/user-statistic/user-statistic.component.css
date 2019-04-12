@@ -1,10 +1,19 @@
 
 .user-statistic {
+   position: relative;
+   z-index: 1;
    width: 600px;
    border: 1px solid #000;
    padding: 10px;
    float: right;
    margin-bottom: 40px;
+}
+
+.wraper {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .work-tools {
@@ -19,4 +28,23 @@
    display: flex;
    flex-flow: row nowrap;
    clear: both;
+}
+
+.btn {
+	margin-left: 10px;
+}
+
+.text {
+   display: inline-block;
+   width: 100px;
+}
+
+.amount {
+   display: inline-block;
+   width: 40px;
+}
+
+.phase {
+   z-index: 3;
+   background-color: #fff;
 }
