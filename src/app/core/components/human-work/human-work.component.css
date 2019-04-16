@@ -3,7 +3,8 @@
    display: flex;
    flex-flow: row nowrap;
    justify-content: flex-start;
-   width: 400px;
+   width: 60%;
+   height: 430px;
    padding: 10px;
    float: left;
    position: relative;
@@ -12,5 +13,5 @@
 
 .phase {
    z-index: 3;
-   background-color: #fff;
+   background-color: #dcedc8;
 }

@@ -10,30 +10,30 @@
       <ul class='list'>
          <li>
             <span class='text' >Food</span> x <span class='amount'>{{player.food}} </span>   
-            <button class='btn' (click)="countResource('food', 2)" [disabled]='isDisabled.food'>Count</button>
+            <button type='button' class='btn btn-sm' (click)="countResource('food', 2)" data-name='food' [disabled]='isDisabled.food'>Count</button>
          </li>
          <li>
             <span class='text'>Wood</span> x <span class='amount'>{{player.wood}} </span>
-            <button class='btn' (click)="countResource('wood', 3)" [disabled]='isDisabled.wood'>Count</button>
+            <button type='button' class='btn btn-sm' (click)="countResource('wood', 3)" data-name='wood' [disabled]='isDisabled.wood'>Count</button>
          </li>
          <li>
             <span class='text'>Clay</span> x <span class='amount'>{{player.clay}} </span>
-            <button class='btn' (click)="countResource('clay', 4)"[disabled]='isDisabled.clay'>Count</button>
+            <button type='button' class='btn btn-sm' (click)="countResource('clay', 4)" data-name='clay' [disabled]='isDisabled.clay'>Count</button>
          </li>
          <li>
             <span class='text'>Stone</span> x <span class='amount'>{{player.stone}} </span>
-            <button class='btn' (click)="countResource('stone', 5)" [disabled]='isDisabled.stone'>Count</button>
+            <button type='button' class='btn btn-sm' (click)="countResource('stone', 5)" data-name='stone' [disabled]='isDisabled.stone'>Count</button>
          </li>
          <li>
             <span class='text'>Gold</span> x <span class='amount'>{{player.gold}} </span>
-            <button class='btn' (click)="countResource('gold', 6)" [disabled]='isDisabled.gold'>Count</button>
+            <button type='button' class='btn btn-sm' (click)="countResource('gold', 6)" data-name='gold' [disabled]='isDisabled.gold'>Count</button>
          </li>
          <li>
             <span class='text'>Population</span> x <span class='amount'>{{player.population}} </span>
-            <button class='btn' [disabled]='isDisabled.population'>Count</button>
+            <button type='button' class='btn btn-sm' [disabled]='isDisabled.population'>Count</button>
          </li>
       </ul>
-      <button class='btn' (click)='sendChanges()'>Feed people</button>
+      <button class='btn btn-outline-primary btn-sm' (click)='sendChanges()'>Feed people</button>
    </div>
    <div class='civilization-cards'>
       <app-civilization-card></app-civilization-card>

@@ -1,15 +1,17 @@
 
 <div class='status-panel'>
-   <div class='timer'>
-      <span class='timer-content'>timer</span>
+   <div class='timer' *ngIf = 'isPlaying'>
+      <span>Time for move:&#8195;</span>
+      <span class='badge badge-warning'>60s</span>
    </div>
-   <div class='login' *ngIf="isAuthorized == false">
-      <button class='btn' (click)='openLoginDialog()'>Login</button>
-      <button class='btn' (click)='openRegisterForm()'>Register</button>
+   <span class='title h2'>Stoneage</span>
+   <div class='login btn-group' *ngIf='!isAuthorized'>
+      <button type ='button' class='btn btn-primary' (click)='openLoginDialog()'>Login</button>
+      <button type='button' class='btn btn-secondary' (click)='openRegisterForm()'>Register</button>
    </div>
-   <div class=game-entry *ngIf="isAuthorized == true">
-      <button class='btn' (click)='openGameList()'>Play</button>
-      <span>{{user?.name}}</span>
-      <button class='btn' (click)='logout()'>Logout</button>
+   <div class=game-entry *ngIf='isAuthorized'>
+      <span class='user-name'>{{user?.name}}</span>
+      <button type='button' class='btn btn-primary' (click)='openGameList()' *ngIf='!isPlaying'>Play</button>
+      <button type='button' class='btn btn-danger' (click)='logout()'>Logout</button>
    </div>
 </div>

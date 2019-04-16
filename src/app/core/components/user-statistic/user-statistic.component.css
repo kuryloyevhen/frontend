@@ -2,11 +2,12 @@
 .user-statistic {
    position: relative;
    z-index: 1;
-   width: 600px;
+   width: 40%;
+   height: 430px;
    border: 1px solid #000;
    padding: 10px;
    float: right;
-   margin-bottom: 40px;
+   padding: 10px;
 }
 
 .wraper {
@@ -46,5 +47,5 @@
 
 .phase {
    z-index: 3;
-   background-color: #fff;
+   background-color: #dcedc8;
 }

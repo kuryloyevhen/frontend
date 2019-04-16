@@ -10,6 +10,7 @@ export class GameCreatorService {
 
    baseUrl = 'http://127.0.0.1:3000';
    rooms: object[] = [];
+   isPlaying: boolean = false;
 
 
    createRoom(data): Observable<any> {
@@ -19,4 +20,5 @@ export class GameCreatorService {
    getRooms(): Observable<any> {
       return this.http.get<any>(this.baseUrl + '/games');
    }
+
 }

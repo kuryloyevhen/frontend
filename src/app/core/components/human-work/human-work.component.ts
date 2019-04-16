@@ -26,7 +26,7 @@ export class HumanWorkComponent implements OnInit {
 
    this.socket.getMovement().subscribe( data => {
       for (const prop in data) {
-         if (data.hasOwnProperty(prop) && data.propertyIsEnumerable(prop)) {
+         if (data.hasOwnProperty(prop) && data.propertyIsEnumerable(prop) && prop !== 'id') {
             if (data[prop] !== 0) {
                if (prop === 'wood' || prop === 'clay' || prop === 'stone' || prop === 'gold') {
                   this.storage[prop] = data[prop];

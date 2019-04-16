@@ -2,7 +2,7 @@
 <div class='chat'>
    <div class='chat-panel'>
       <textarea name="chat" cols="30" rows="1" class='text-area' [(ngModel)]='message'></textarea>
-      <button class='btn' (click)='sendMessage()'>Send</button>
+      <button type='button' class='btn btn-success' (click)='sendMessage()'>Send</button>
    </div>
    <div class='messages'>
       <ul class='message-list'>

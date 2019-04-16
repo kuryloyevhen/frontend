@@ -37,9 +37,7 @@ export class SocketService {
    }
 
    connectToRoom(name) {
-      return Observable.create( observer => {
          this.stoneage.emit('join', name);
-      });
    }
 
    getRoomList() {
@@ -79,6 +77,14 @@ export class SocketService {
       });
    }
 
+   test() {
+      return Observable.create( observer => {
+         this.stoneage.on('test', test => {
+            observer.next(test);
+         });
+      });
+   }
+
    returnPeople(data) {
       this.stoneage.emit('return', data);
    }
@@ -105,6 +111,22 @@ export class SocketService {
 
    changePhase(data) {
       this.stoneage.emit('changePhase', data);
+   }
+
+   getID() {
+      return Observable.create( observer => {
+         this.stoneage.on('setID', id => {
+            observer.next(id);
+         });
+      });
+   }
+
+   changePlayer() {
+      return Observable.create( observer => {
+         this.stoneage.on('changePlayer', id => {
+            observer.next(id);
+         });
+      });
    }
 
 

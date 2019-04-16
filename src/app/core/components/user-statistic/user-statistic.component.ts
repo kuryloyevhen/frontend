@@ -12,6 +12,8 @@ export class UserStatisticComponent implements OnInit {
   constructor(private storage: StorageService,
               private socket: SocketService) { }
 
+   playerId;
+
    player = {
       wood: 0,
       clay: 0,
@@ -47,17 +49,62 @@ export class UserStatisticComponent implements OnInit {
                this.player[prop] = res[prop];
             }
          }
+         this.playerId = res.id;
       });
 
       this.socket.getMovement().subscribe( res => {
-         for (let prop in res) {
-            if (res.hasOwnProperty(prop) && res.propertyIsEnumerable(prop)) {
-               if (res[prop] !== 0) {
-                  this.isDisabled[prop] = false;
+         if (res.id === this.playerId) {
+            let elem;
+            elem = document.getElementsByClassName('btn');
+            for (let prop in res) {
+               if (res.hasOwnProperty(prop) && res.propertyIsEnumerable(prop) && prop !== 'id') {
+                  if (res[prop] !== 0) {
+                     this.isDisabled[prop] = false;
+                     for (let item of elem) {
+                        if (item.dataset.name === prop) {
+                           item.classList.add('btn-outline-primary');
+                           item.classList.remove('btn-outline-light');
+                        }
+                     }
+                  } else {
+                     for (let item of elem) {
+                        if (item.dataset.name === prop) {
+                           item.classList.add('btn-outline-light');
+                           item.classList.remove('btn-outline-primary');
+                        }
+                     }
+                  }
                }
             }
          }
       });
+
+
+      /*this.socket.changes().subscribe( res => {
+         let elem;
+         elem = document.getElementsByClassName('btn');
+         for (let prop in res) {
+            if (res.hasOwnProperty(prop) && res.propertyIsEnumerable(prop)) {
+               this.player[prop] = res[prop];
+               if (res[prop] !== 0) {
+                  this.isDisabled[prop] = false;
+                  for (let item of elem) {
+                     if (item.dataset.name === prop) {
+                        item.classList.add('btn-outline-primary');
+                        item.classList.remove('btn-outline-light');
+                     }
+                  }
+               } else {
+                  for (let item of elem) {
+                     if (item.dataset.name === prop) {
+                        item.classList.add('btn-outline-light');
+                        item.classList.remove('btn-outline-primary');
+                     }
+                  }
+               }
+            }
+         }
+      });*/
 
       this.socket.phase().subscribe( res => {
          const elem = document.getElementsByClassName('user-statistic')[0];
@@ -89,6 +136,14 @@ export class UserStatisticComponent implements OnInit {
          resourceAmount: result
       };
       this.socket.returnPeople(data);
+      let elem;
+      elem = document.getElementsByClassName('btn');
+      for (let item of elem) {
+         if (item.dataset.name === name) {
+            item.classList.remove('btn-outline-primary');
+            item.classList.add('btn-outline-light');
+         }
+      }
    }
 
    sendChanges() {

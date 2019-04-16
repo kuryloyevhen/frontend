@@ -34,14 +34,15 @@ export class GameListComponent implements OnInit {
   createGame() {
       this.service.createRoom(this.roomForm.value).subscribe( res => {
          this.socket.room = res.name;
-         this.socket.connectToRoom(this.roomForm.value.name).subscribe();
+         this.socket.connectToRoom(this.roomForm.value.name);
          this.dialog.closeAll();
          this.router.navigate(['stoneage']);
       });
   }
 
   joinToGame(name) {
-      this.socket.connectToRoom(name).subscribe();
+      this.socket.connectToRoom(name);
+      this.service.isPlaying = true;
       this.router.navigate(['stoneage']);
       this.dialog.closeAll();
       this.socket.room = name;

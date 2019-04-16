@@ -6,6 +6,7 @@ import { AuthService } from '../../../shared/services/auth.service';
 import { RegisterFormComponent } from '../register-form/register-form.component';
 import { SocketService } from 'src/app/shared/services/socket.service';
 import { Router } from '@angular/router';
+import { GameCreatorService } from 'src/app/shared/services/game-creator.service';
 
 
 @Component({
@@ -17,11 +18,13 @@ export class StatusPanelComponent {
 
   constructor(public dialog: MatDialog,
               public service: AuthService,
+              private gameCreator: GameCreatorService,
               private socket: SocketService,
               private router: Router) { }
 
    user: object;
    isAuthorized = false;
+   isPlaying = false;
 
   openLoginDialog() {
       let dialogConfig = new MatDialogConfig();
@@ -33,7 +36,7 @@ export class StatusPanelComponent {
       };
       const dialogRef = this.dialog.open(LoginDialogComponent, dialogConfig);
       dialogRef.afterClosed().subscribe( () => {
-         this.isAuthorized = true;
+         this.isAuthorized = this.service.isAuthorized;
          this.user = this.service.user;
          this.socket.connectToSocket();
       });
@@ -48,7 +51,9 @@ export class StatusPanelComponent {
       height: '400px'
    };
    const dialogRef = this.dialog.open(GameListComponent, dialogConfig);
-   dialogRef.afterClosed().subscribe();
+   dialogRef.afterClosed().subscribe( () => {
+      this.isPlaying = this.gameCreator.isPlaying;
+   });
 }
 
 openRegisterForm() {
