@@ -9,5 +9,8 @@ export class StorageService {
    clay = 0;
    stone = 0;
    gold = 0;
+   agronomy = 0;
+   population = 0;
+   smithy = 0;
 
 }

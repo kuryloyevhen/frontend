@@ -98,7 +98,7 @@ export class SocketService {
    }
 
    feed() {
-      this.stoneage.emit('feed');
+      this.stoneage.emit('feed', this.room);
    }
 
    phase() {
@@ -127,6 +127,10 @@ export class SocketService {
             observer.next(id);
          });
       });
+   }
+
+   nextPlayer() {
+      this.stoneage.emit('changePlayer', this.room);
    }
 
 

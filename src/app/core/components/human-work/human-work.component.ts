@@ -55,7 +55,14 @@ export class HumanWorkComponent implements OnInit {
    });
 
    this.socket.getReturn().subscribe( data => {
-      let resourceIndex;
+      if (data.resourceName === 'agronomy' || data.resourceName === 'population' || data.resourceName === 'smithy') {
+         this.staff = document.getElementsByClassName(data.resourceName)[0];
+         this.staffPlace = this.staff.getElementsByClassName('human-place');
+         for (const place of this.staffPlace) {
+            place.classList.remove('checked');
+         }
+      } else {
+         let resourceIndex;
       for (const elem of this.resources) {
          if (elem.dataset.name === data.resourceName) {
             resourceIndex = elem.dataset.id;
@@ -63,6 +70,7 @@ export class HumanWorkComponent implements OnInit {
       }
       for (const item of this.humanPlaces[resourceIndex]) {
          item.classList.remove('checked');
+      }
       }
    });
 

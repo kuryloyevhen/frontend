@@ -30,7 +30,15 @@
          </li>
          <li>
             <span class='text'>Population</span> x <span class='amount'>{{player.population}} </span>
-            <button type='button' class='btn btn-sm' [disabled]='isDisabled.population'>Count</button>
+            <button type='button' class='btn btn-sm' [disabled]='isDisabled.population' data-name='population' (click)="countResource('population', null)">Count</button>
+         </li>
+         <li>
+            <span class='text'>Agronomy</span> x <span class='amount'>{{player.agronomy}} </span>
+            <button type='button' class='btn btn-sm' [disabled]='isDisabled.agronomy' data-name='agronomy' (click)="countResource('agronomy', null)">Count</button>
+         </li>
+         <li>
+            <span class='text'>Work tools</span> x <span class='amount'>{{player.smithy}} </span>
+            <button type='button' class='btn btn-sm' [disabled]='isDisabled.smithy' data-name='smithy' (click)="countResource('smithy', null)">Count</button>
          </li>
       </ul>
       <button class='btn btn-outline-primary btn-sm' (click)='sendChanges()'>Feed people</button>

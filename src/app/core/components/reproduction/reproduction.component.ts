@@ -14,12 +14,12 @@ export class ReproductionComponent implements OnInit {
    elem;
 
   ngOnInit() {
-     this.root = document.getElementsByClassName('reproduction')[0];
+     this.root = document.getElementsByClassName('population')[0];
      this.elem = this.root.getElementsByClassName('human-place');
      for (let item of this.elem) {
         item.addEventListener('click', () => {
            const data = {
-              staff: 'reproduction',
+              staff: 'population',
               amount: 2
            };
            this.socket.move(data);
